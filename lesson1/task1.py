@@ -20,9 +20,9 @@ def check_is_ipadress(item):
 def url_ping(url):
 
     try:
-        ipadress = check_is_ipadress(host)
+        ipadress = check_is_ipadress(url)
     except Exception as er:
-        ipadress = host
+        ipadress = url
 
     param = "-n" if platform.system().lower() == 'windows' else "-c"
     command = ['ping', param, '1', '-w', '1', str(ipadress)]
