@@ -1,8 +1,8 @@
 from posixpath import split
-from task1 import check_is_ipadress, url_ping
+from task1 import check_is_ipadress, url_ping,result
 
 
-def host_range_ping():
+def host_range_ping(host_dict=False):
     while True:
         start_ip = input("Введите начальный IP адрес: ")
 
@@ -32,8 +32,10 @@ def host_range_ping():
     [ip_list.append(str(ipadress+x)) for x in range(int(quantity_ip_chek))]
 
     for host in ip_list:
-        url_ping(host)
+        url_ping(host,result,host_dict)
 
+    if host_dict:
+        return result
 
 if __name__ == "__main__":
     host_range_ping()
