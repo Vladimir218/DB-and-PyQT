@@ -11,6 +11,7 @@ from common.variables import *
 from common.utils import *
 from decos import log
 from port_descriptor import Check_port
+from metaclasses import ServerVerifier
 
 # Инициализация логирования сервера.
 logger = logging.getLogger('server_dist')
@@ -29,7 +30,7 @@ def arg_parser():
 
 
 # Основной класс сервера
-class Server:
+class Server(metaclass =ServerVerifier):
     port = Check_port()
 
     def __init__(self, listen_address, listen_port):
