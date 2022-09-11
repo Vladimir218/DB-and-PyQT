@@ -10,6 +10,7 @@ from errors import IncorrectDataRecivedError
 from common.variables import *
 from common.utils import *
 from decos import log
+from port_descriptor import Check_port
 
 # Инициализация логирования сервера.
 logger = logging.getLogger('server_dist')
@@ -29,6 +30,8 @@ def arg_parser():
 
 # Основной класс сервера
 class Server:
+    port = Check_port()
+
     def __init__(self, listen_address, listen_port):
         # Параметры подключения
         self.addr = listen_address
@@ -78,7 +81,8 @@ class Server:
             # Проверяем на наличие ждущих клиентов
             try:
                 if self.clients:
-                    recv_data_lst, send_data_lst, err_lst = select.select(self.clients, self.clients, [], 0)
+                    recv_data_lst, send_data_lst, err_lst = select.select(
+                        self.clients, self.clients, [], 0)
             except OSError:
                 pass
 
@@ -86,9 +90,11 @@ class Server:
             if recv_data_lst:
                 for client_with_message in recv_data_lst:
                     try:
-                        self.process_client_message(get_message(client_with_message), client_with_message)
+                        self.process_client_message(get_message(
+                            client_with_message), client_with_message)
                     except:
-                        logger.info(f'Клиент {client_with_message.getpeername()} отключился от сервера.')
+                        logger.info(
+                            f'Клиент {client_with_message.getpeername()} отключился от сервера.')
                         self.clients.remove(client_with_message)
 
             # Если есть сообщения, обрабатываем каждое.

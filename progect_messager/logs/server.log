@@ -177,3 +177,69 @@
 2022-09-11 11:34:37,103 DEBUG decos.py Была вызвана функция send_message c параметрами (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7000), raddr=('127.0.0.1', 39876)>, {'response': 200}) , {}. Вызов из модуля common.utils
 2022-09-11 11:34:37,104 DEBUG decos.py Была вызвана функция process_response_ans c параметрами ({'response': 200},) , {}. Вызов из модуля __main__
 2022-09-11 11:34:37,105 DEBUG decos.py Была вызвана функция get_message c параметрами (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 39876), raddr=('127.0.0.1', 7000)>,) , {}. Вызов из модуля common.utils
+2022-09-11 12:24:38,941 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 12:24:38,942 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 12:24:38,943 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 12:24:38,953 INFO server.py Запущен сервер, порт для подключений: 7000, адрес с которого принимаются подключения: . Если адрес не указан, принимаются соединения с любых адресов.
+2022-09-11 12:24:38,961 DEBUG decos.py Была вызвана функция create_presence c параметрами ('user1',) , {}. Вызов из модуля __main__
+2022-09-11 12:24:38,961 DEBUG decos.py Была вызвана функция create_presence c параметрами ('user2',) , {}. Вызов из модуля __main__
+2022-09-11 12:24:38,961 INFO server.py Установлено соедение с ПК ('127.0.0.1', 35982)
+2022-09-11 12:24:38,962 DEBUG decos.py Была вызвана функция send_message c параметрами (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 35982), raddr=('127.0.0.1', 7000)>, {'action': 'presence', 'time': 1662888278.9618356, 'user': {'account_name': 'user1'}}) , {}. Вызов из модуля common.utils
+2022-09-11 12:24:38,962 INFO server.py Установлено соедение с ПК ('127.0.0.1', 35986)
+2022-09-11 12:24:38,962 DEBUG decos.py Была вызвана функция send_message c параметрами (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 35986), raddr=('127.0.0.1', 7000)>, {'action': 'presence', 'time': 1662888278.9618413, 'user': {'account_name': 'user2'}}) , {}. Вызов из модуля common.utils
+2022-09-11 12:24:38,962 DEBUG decos.py Была вызвана функция get_message c параметрами (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 35982), raddr=('127.0.0.1', 7000)>,) , {}. Вызов из модуля common.utils
+2022-09-11 12:24:38,962 DEBUG decos.py Была вызвана функция get_message c параметрами (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 35986), raddr=('127.0.0.1', 7000)>,) , {}. Вызов из модуля common.utils
+2022-09-11 12:24:39,462 DEBUG decos.py Была вызвана функция get_message c параметрами (<socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7000), raddr=('127.0.0.1', 35982)>,) , {}. Вызов из модуля common.utils
+2022-09-11 12:24:39,463 DEBUG server.py Разбор сообщения от клиента : {'action': 'presence', 'time': 1662888278.9618356, 'user': {'account_name': 'user1'}}
+2022-09-11 12:24:39,463 DEBUG decos.py Была вызвана функция send_message c параметрами (<socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7000), raddr=('127.0.0.1', 35982)>, {'response': 200}) , {}. Вызов из модуля common.utils
+2022-09-11 12:24:39,464 DEBUG decos.py Была вызвана функция get_message c параметрами (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7000), raddr=('127.0.0.1', 35986)>,) , {}. Вызов из модуля common.utils
+2022-09-11 12:24:39,464 DEBUG decos.py Была вызвана функция process_response_ans c параметрами ({'response': 200},) , {}. Вызов из модуля __main__
+2022-09-11 12:24:39,464 DEBUG server.py Разбор сообщения от клиента : {'action': 'presence', 'time': 1662888278.9618413, 'user': {'account_name': 'user2'}}
+2022-09-11 12:24:39,464 DEBUG decos.py Была вызвана функция send_message c параметрами (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7000), raddr=('127.0.0.1', 35986)>, {'response': 200}) , {}. Вызов из модуля common.utils
+2022-09-11 12:24:39,465 DEBUG decos.py Была вызвана функция process_response_ans c параметрами ({'response': 200},) , {}. Вызов из модуля __main__
+2022-09-11 12:24:39,465 DEBUG decos.py Была вызвана функция get_message c параметрами (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 35982), raddr=('127.0.0.1', 7000)>,) , {}. Вызов из модуля common.utils
+2022-09-11 12:24:39,466 DEBUG decos.py Была вызвана функция get_message c параметрами (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 35986), raddr=('127.0.0.1', 7000)>,) , {}. Вызов из модуля common.utils
+2022-09-11 12:25:01,336 DEBUG decos.py Была вызвана функция send_message c параметрами (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 35986), raddr=('127.0.0.1', 7000)>, {'action': 'message', 'from': 'user2', 'to': 'user2', 'time': 1662888301.335761, 'mess_text': 'test'}) , {}. Вызов из модуля common.utils
+2022-09-11 12:25:01,491 DEBUG decos.py Была вызвана функция get_message c параметрами (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7000), raddr=('127.0.0.1', 35986)>,) , {}. Вызов из модуля common.utils
+2022-09-11 12:25:01,492 DEBUG server.py Разбор сообщения от клиента : {'action': 'message', 'from': 'user2', 'to': 'user2', 'time': 1662888301.335761, 'mess_text': 'test'}
+2022-09-11 12:25:01,492 DEBUG decos.py Была вызвана функция send_message c параметрами (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7000), raddr=('127.0.0.1', 35986)>, {'action': 'message', 'from': 'user2', 'to': 'user2', 'time': 1662888301.335761, 'mess_text': 'test'}) , {}. Вызов из модуля common.utils
+2022-09-11 12:25:01,492 INFO server.py Отправлено сообщение пользователю user2 от пользователя user2.
+2022-09-11 12:25:01,493 DEBUG decos.py Была вызвана функция get_message c параметрами (<socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 35986), raddr=('127.0.0.1', 7000)>,) , {}. Вызов из модуля common.utils
+2022-09-11 14:04:03,546 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:04:03,551 INFO server.py Запущен сервер, порт для подключений: 7000, адрес с которого принимаются подключения: . Если адрес не указан, принимаются соединения с любых адресов.
+2022-09-11 14:04:31,262 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:04:31,266 INFO server.py Запущен сервер, порт для подключений: 7000, адрес с которого принимаются подключения: . Если адрес не указан, принимаются соединения с любых адресов.
+2022-09-11 14:04:41,264 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:04:41,270 INFO server.py Запущен сервер, порт для подключений: 7000, адрес с которого принимаются подключения: . Если адрес не указан, принимаются соединения с любых адресов.
+2022-09-11 14:04:54,095 DEBUG decos.py Была вызвана функция get_message c параметрами (<socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7000), raddr=('127.0.0.1', 35986)>,) , {}. Вызов из модуля common.utils
+2022-09-11 14:04:54,096 INFO server.py Клиент ('127.0.0.1', 35986) отключился от сервера.
+2022-09-11 14:05:19,324 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:05:19,329 INFO server.py Запущен сервер, порт для подключений: 7000, адрес с которого принимаются подключения: . Если адрес не указан, принимаются соединения с любых адресов.
+2022-09-11 14:06:16,216 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:06:16,220 INFO server.py Запущен сервер, порт для подключений: 7000, адрес с которого принимаются подключения: . Если адрес не указан, принимаются соединения с любых адресов.
+2022-09-11 14:13:13,534 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:13:13,538 INFO server.py Запущен сервер, порт для подключений: 7000, адрес с которого принимаются подключения: . Если адрес не указан, принимаются соединения с любых адресов.
+2022-09-11 14:15:31,513 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:15:31,518 INFO server.py Запущен сервер, порт для подключений: 7000, адрес с которого принимаются подключения: . Если адрес не указан, принимаются соединения с любых адресов.
+2022-09-11 14:16:38,006 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:17:17,508 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:17:30,833 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:17:52,809 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:17:52,813 INFO server.py Запущен сервер, порт для подключений: 7777, адрес с которого принимаются подключения: . Если адрес не указан, принимаются соединения с любых адресов.
+2022-09-11 14:18:41,227 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:18:41,230 INFO server.py Запущен сервер, порт для подключений: 7777, адрес с которого принимаются подключения: . Если адрес не указан, принимаются соединения с любых адресов.
+2022-09-11 14:19:51,176 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:19:51,180 INFO server.py Запущен сервер, порт для подключений: 7777, адрес с которого принимаются подключения: . Если адрес не указан, принимаются соединения с любых адресов.
+2022-09-11 14:20:54,018 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:20:54,021 INFO server.py Запущен сервер, порт для подключений: 7777, адрес с которого принимаются подключения: . Если адрес не указан, принимаются соединения с любых адресов.
+2022-09-11 14:21:24,870 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:21:43,415 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:22:13,548 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:22:20,422 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:22:31,856 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:23:18,826 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:23:57,408 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:25:42,368 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:26:20,330 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:26:35,675 DEBUG decos.py Была вызвана функция arg_parser c параметрами () , {}. Вызов из модуля __main__
+2022-09-11 14:26:35,678 INFO server.py Запущен сервер, порт для подключений: 7777, адрес с которого принимаются подключения: . Если адрес не указан, принимаются соединения с любых адресов.
