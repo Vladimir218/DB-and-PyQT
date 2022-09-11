@@ -36,3 +36,40 @@ class ServerVerifier(type):
                 'Использование метода connect недопустимо в серверном классе')
 
         super().__init__(clsname, bases_class, clsdict)
+
+
+class ClientVerifier(type):
+    def __init__(cls, clsname, bases_class, clsdict):
+        methods = []  # список методов, использующихся в функциях класса
+
+        for metod in clsdict:
+            try:
+                # Возвращает итератор по инструкциям в предоставленной функции
+                # , методе, строке исходного кода или объекте кода.
+                ret = dis.get_instructions(clsdict[metod])
+                # Если не метод, то получаем исключение (например порт)
+            except TypeError:
+                pass
+            else:
+                # разбираем код, получая используемые методы
+                for i in ret:
+                    if i.opname == 'LOAD_GLOBAL':
+                        if i.argval not in methods:
+                            # заполняем список методами, использующимися в функциях класса
+                            methods.append(i.argval)
+
+        # Если обнаружено использование недопустимого метода accept, listen, socket формируем исключение
+        for metod in ('accept', 'listen', 'socket'):
+            if metod in methods:
+                raise TypeError(
+                    'В классе обнаружено использование запрещённого метода')
+
+        # Критериями корректной работы по TCP примем вызов get_message или send_message
+
+        if 'get_message' in methods or 'send_message' in methods:
+            pass
+        else:
+            raise TypeError(
+                'Отсутствует вызов функций работы с сокетами, вероятно проблемы с TCP соединением')
+
+        super().__init__(clsname, bases_class, clsdict)

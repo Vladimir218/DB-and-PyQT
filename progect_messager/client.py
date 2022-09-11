@@ -11,13 +11,14 @@ from common.variables import *
 from common.utils import *
 from errors import IncorrectDataRecivedError, ReqFieldMissingError, ServerError
 from decos import log
+from metaclasses import ClientVerifier
 
 # Инициализация клиентского логера
 logger = logging.getLogger('client_dist')
 
 
 # Класс формировки и отправки сообщений на сервер и взаимодействия с пользователем.
-class ClientSender(threading.Thread):
+class ClientSender(threading.Thread, metaclass=ClientVerifier):
     def __init__(self, account_name, sock):
         self.account_name = account_name
         self.sock = sock
@@ -70,7 +71,8 @@ class ClientSender(threading.Thread):
                 time.sleep(0.5)
                 break
             else:
-                print('Команда не распознана, попробойте снова. help - вывести поддерживаемые команды.')
+                print(
+                    'Команда не распознана, попробойте снова. help - вывести поддерживаемые команды.')
 
     # Функция выводящяя справку по использованию.
     def print_help(self):
@@ -81,7 +83,7 @@ class ClientSender(threading.Thread):
 
 
 # Класс-приёмник сообщений с сервера. Принимает сообщения, выводит в консоль.
-class ClientReader(threading.Thread):
+class ClientReader(threading.Thread):  # , metaclass=ClientVerifier):
     def __init__(self, account_name, sock):
         self.account_name = account_name
         self.sock = sock
@@ -94,10 +96,13 @@ class ClientReader(threading.Thread):
                 message = get_message(self.sock)
                 if ACTION in message and message[ACTION] == MESSAGE and SENDER in message and DESTINATION in message \
                         and MESSAGE_TEXT in message and message[DESTINATION] == self.account_name:
-                    print(f'\nПолучено сообщение от пользователя {message[SENDER]}:\n{message[MESSAGE_TEXT]}')
-                    logger.info(f'Получено сообщение от пользователя {message[SENDER]}:\n{message[MESSAGE_TEXT]}')
+                    print(
+                        f'\nПолучено сообщение от пользователя {message[SENDER]}:\n{message[MESSAGE_TEXT]}')
+                    logger.info(
+                        f'Получено сообщение от пользователя {message[SENDER]}:\n{message[MESSAGE_TEXT]}')
                 else:
-                    logger.error(f'Получено некорректное сообщение с сервера: {message}')
+                    logger.error(
+                        f'Получено некорректное сообщение с сервера: {message}')
             except IncorrectDataRecivedError:
                 logger.error(f'Не удалось декодировать полученное сообщение.')
             except (OSError, ConnectionError, ConnectionAbortedError, ConnectionResetError, json.JSONDecodeError):
@@ -115,7 +120,8 @@ def create_presence(account_name):
             ACCOUNT_NAME: account_name
         }
     }
-    logger.debug(f'Сформировано {PRESENCE} сообщение для пользователя {account_name}')
+    logger.debug(
+        f'Сформировано {PRESENCE} сообщение для пользователя {account_name}')
     return out
 
 
@@ -176,16 +182,19 @@ def main():
         transport.connect((server_address, server_port))
         send_message(transport, create_presence(client_name))
         answer = process_response_ans(get_message(transport))
-        logger.info(f'Установлено соединение с сервером. Ответ сервера: {answer}')
+        logger.info(
+            f'Установлено соединение с сервером. Ответ сервера: {answer}')
         print(f'Установлено соединение с сервером.')
     except json.JSONDecodeError:
         logger.error('Не удалось декодировать полученную Json строку.')
         exit(1)
     except ServerError as error:
-        logger.error(f'При установке соединения сервер вернул ошибку: {error.text}')
+        logger.error(
+            f'При установке соединения сервер вернул ошибку: {error.text}')
         exit(1)
     except ReqFieldMissingError as missing_error:
-        logger.error(f'В ответе сервера отсутствует необходимое поле {missing_error.missing_field}')
+        logger.error(
+            f'В ответе сервера отсутствует необходимое поле {missing_error.missing_field}')
         exit(1)
     except (ConnectionRefusedError, ConnectionError):
         logger.critical(
