@@ -1,4 +1,5 @@
 import os
+from re import S
 import signal
 import subprocess
 from time import sleep
@@ -24,10 +25,10 @@ while True:
         break
     elif action == "s":
         process.append(get_subprocess(" -- python3 server.py"))
-
+        sleep(1)
         for i in range(2):
-           process.append(get_subprocess(f' -- python3 client.py -n user{i+1}'))
-
+            process.append(get_subprocess(f' -- python3 client.py -n user{i+1}'))
+            sleep(1)
     elif action == "x":
         while process:
             victim = process.pop()
