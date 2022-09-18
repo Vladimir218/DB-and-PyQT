@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QMainWindow, QAction, qApp, QApplication, QLabel, QTableView, QDialog, QPushButton, \
     QLineEdit, QFileDialog, QMessageBox
-from PyQt5.QtGui import QStandardItemModel, QStandardItem
+from PyQt5.QtGui import QStandardItemModel, QStandardItem, QIcon
 from PyQt5.QtCore import Qt
 from datetime import datetime
 import os
@@ -58,7 +58,7 @@ class MainWindow(QMainWindow):
 
     def initUI(self):
         # Кнопка выхода
-        self.exitAction = QAction('Выход', self)
+        self.exitAction = QAction(QIcon('exit.jpg'),'Выход', self)
         self.exitAction.setShortcut('Ctrl+Q')
         self.exitAction.triggered.connect(qApp.quit)
 
