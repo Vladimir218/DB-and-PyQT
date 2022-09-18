@@ -35,7 +35,7 @@ class ServerStorage:
             self.ip_adress = ip_adress
             self.port = port
 
-    def __init__(self):
+    def __init__(self,path):
         # Создаём движок базы данных
         # SERVER_DATABASE - sqlite:///server_base.db3
         # echo=False - отключает вывод на экран sql-запросов)
@@ -45,7 +45,7 @@ class ServerStorage:
         # connect_args={'check_same_thread': False}) для того, чтобы не возникало конфликта
         # при доступе к БД из разных потоков: потока класса Server и основного потока
 
-        self.database_engine = create_engine(SERVER_DATABASE, echo=False, pool_recycle=7200,
+        self.database_engine = create_engine(f'sqlite:///{path}', echo=False, pool_recycle=7200,
                                              connect_args={'check_same_thread': False})
 
         # Создаём объект MetaData

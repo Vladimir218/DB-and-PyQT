@@ -1,4 +1,6 @@
+from operator import ne
 import os.path
+from re import M
 import socket
 import sys
 import argparse
@@ -15,17 +17,27 @@ from port_descriptor import Check_port
 from metaclasses import ServerVerifier
 from server_db import ServerStorage
 import threading
+import configparser   # https://docs.python.org/3/library/configparser.html
+from PyQt5.QtWidgets import QApplication, QMessageBox
+from PyQt5.QtCore import QTimer
+from PyQt5.QtGui import QStandardItemModel, QStandardItem
+from server_gui import MainWindow, HistoryWindow, ConfigWindow, gui_create_model, create_stat_model
 
 # Инициализация логирования сервера.
 logger = logging.getLogger('server_dist')
 
 
+# Флаг индикации подключения нового пользователя, нужен чтобы не отправлять
+# лишние запросы в БД когда нет подключений новых пользователей
+new_connection = False
+conflag_lock = threading.Lock()
+
 # Парсер аргументов командной строки.
 @log
-def arg_parser():
+def arg_parser(default_port, default_address):
     parser = argparse.ArgumentParser()
-    parser.add_argument('-p', default=DEFAULT_PORT, type=int, nargs='?')
-    parser.add_argument('-a', default='', nargs='?')
+    parser.add_argument('-p', default=default_port, type=int, nargs='?')
+    parser.add_argument('-a', default=default_address, nargs='?')
     namespace = parser.parse_args(sys.argv[1:])
     listen_address = namespace.a
     listen_port = namespace.p
@@ -149,7 +161,8 @@ class Server(threading.Thread, metaclass=ServerVerifier):
             if message[USER][ACCOUNT_NAME] not in self.names.keys():
                 self.names[message[USER][ACCOUNT_NAME]] = client
                 client_ip, client_port = client.getpeername()
-                self.database.user_login(message[USER][ACCOUNT_NAME], client_ip, client_port)
+                self.database.user_login(
+                    message[USER][ACCOUNT_NAME], client_ip, client_port)
                 send_message(client, RESPONSE_200)
             else:
                 response = RESPONSE_400
@@ -194,12 +207,21 @@ def print_help():
 
 
 def main():
+
+    # Загрузка файла конфигурации сервера(server.ini)
+    config = configparser.ConfigParser()
+
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    config.read(f"{dir_path}/{'server.ini'}")
+
     # Загрузка параметров командной строки, если нет параметров,
     # то задаём значения по умолчанию.
-    listen_address, listen_port = arg_parser()
+    listen_address, listen_port = arg_parser(config['SETTINGS']['Default_port'], config['SETTINGS']['Listen_Address'])
 
     # Инициализация базы данных
-    database = ServerStorage()
+    database = ServerStorage(os.path.join(
+            config['SETTINGS']['Database_path'],
+            config['SETTINGS']['Database_file']))
 
     # Создание экземпляра класса - сервера.
     server = Server(listen_address, listen_port, database)
@@ -207,42 +229,82 @@ def main():
     server.start()
 
 
-    # Основной цикл сервера:
-    while True:
-        command = input('Введите команду: ')
-        if command == 'help':
-            print_help()
-        elif command == 'exit':
-            break
-        elif command == 'users':
-            all_users = sorted(database.users_list())
-            if all_users:
-                for user in all_users:
-                    print(f'Пользователь {user[0]}, последний вход: {user[1]}')
-            else:
-                print('No data')
+    # Графическое окружение для сервера:
+    server_app = QApplication(sys.argv)
+    main_window = MainWindow()
 
-        elif command == 'connected':
-            active_users = sorted(database.active_users_list())
-            if active_users:
-                for user in active_users:
-                    print(f'Пользователь {user[0]}, подключен: {user[1]}:{user[2]}, '
-                          f'время установки соединения: {user[3]}')
-            else:
-                print('No data')
-        elif command == 'loghist':
-            name = input('Введите имя пользователя для просмотра истории. '
-                         'Для вывода всей истории, просто нажмите Enter: ')
-            history = sorted(database.login_history(name))
-            if history:
-                for user in sorted(database.login_history(name)):
-                    print(f'Пользователь: {user[0]} время входа: {user[1]}. '
-                          f'Вход с: {user[2]}:{user[3]}')
-            else:
-                print('No data')
+    # Инициализация параметров окна
+    main_window.statusBar().showMessage("Serwer working")
+    main_window.active_clients_table.setModel(gui_create_model(database))
+    main_window.active_clients_table.resizeColumnsToContents()
+    main_window.active_clients_table.resizeRowsToContents()
+
+    def list_update():
+        global new_connection
+        if new_connection:
+            main_window.active_clients_table.setModel(gui_create_model(database))
+            main_window.active_clients_table.resizeColumnsToContents()
+            main_window.active_clients_table.resizeRowsToContents()
+            with conflag_lock:
+                new_connection=False
+
+    # Функция, вызывающая окно со статистикой клиентов
+    def show_statistics():
+        global stat_window
+        stat_window = HistoryWindow()
+        stat_window.history_table.setModel(create_stat_model(database))
+        stat_window.history_table.resizeColumnsToContents()
+        stat_window.history_table.resizeRowsToContents()
+        stat_window.show()
+
+    # Функция вызывающая окно с настройками сервера.
+    def server_config():
+        global config_window
+        #Создаем окно и вносим текущие параметры
+        config_window = ConfigWindow()
+        config_window.db_path.insert(config['SETTINGS']['Database_path'])
+        config_window.db_file.insert(config['SETTINGS']['Database_file'])
+        config_window.port.insert(config['SETTINGS']['Default_port'])
+        config_window.ip.insert(config['SETTINGS']['Listen_Address'])
+        config_window.save_btn.clicked.connect(save_server_config)
+
+    # Функция сохранения настроек
+    def save_server_config():
+        global config_window
+        message = QMessageBox()
+        config['SETTINGS']['Database_path'] = config_window.db_path.text()
+        config['SETTINGS']['Database_file'] = config_window.db_file.text()
+        try:
+            port = int(config_window.port.text())
+        except ValueError:
+            message.warning(config_window, 'Ошибка', 'Порт должен быть числом')
         else:
-            print('Команда не распознана.')
+            config['SETTINGS']['Listen_Address'] = config_window.ip.text()
+            if 1023 < port < 65536:
+                config['SETTINGS']['Default_port'] = str(port)
+                #print(port)
+                with open('server.ini', 'w') as conf:
+                    config.write(conf)
+                    message.information(
+                        config_window, 'OK', 'Настройки успешно сохранены!')
+            else:
+                message.warning(
+                    config_window,
+                    'Ошибка',
+                    'Порт должен быть от 1024 до 65536')
 
+    # Таймер, обновляющий список клиентов 1 раз в секунду
+    timer = QTimer()
+    timer.timeout.connect(list_update)
+    timer.start(10000)
+
+    # Связываем кнопки с процедурами
+    main_window.refresh_button.triggered.connect(list_update)
+    main_window.show_history_button.triggered.connect(show_statistics)
+    main_window.config_btn.triggered.connect(server_config)
+
+    # Запускаем GUI
+    server_app.exec_()
 
 
 if __name__ == '__main__':
