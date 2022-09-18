@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, ForeignKey, DateTime
 from sqlalchemy.orm import mapper, sessionmaker
-from common.variables import *
+#from common.variables import *
 import datetime
 
 
@@ -34,7 +34,24 @@ class ServerStorage:
             self.ip = ip
             self.port = port
 
-    def __init__(self):
+    # Класс - отображение таблицы контактов пользователей
+
+    class UsersContacts:
+        def __init__(self, user, contact):
+            self.id = None
+            self.user = user
+            self.contact = contact
+
+    # Класс отображение таблицы истории действий
+    class UsersHistory:
+        def __init__(self, user):
+            self.id = None
+            self.user = user
+            self.sent = 0
+            self.accepted = 0
+
+
+    def __init__(self,path):
         # Создаём движок базы данных
         # SERVER_DATABASE - sqlite:///server_base.db3
         # echo=False - отключает вывод на экран sql-запросов)
@@ -43,10 +60,13 @@ class ServerStorage:
         #    соединения через каждые 2 часа)
         # connect_args={'check_same_thread': False}) для того, чтобы не возникало конфликта
         # при доступе к БД из разных потоков: потока класса Server и основного потока
-        self.database_engine = create_engine(SERVER_DATABASE,
+
+        self.database_engine = create_engine(f'sqlite:///{path}',
                                              echo=False,
                                              pool_recycle=7200,
                                              connect_args={'check_same_thread': False})
+
+
         # Создаём объект MetaData
         self.metadata = MetaData()
 
@@ -60,7 +80,8 @@ class ServerStorage:
         # Создаём таблицу активных пользователей
         active_users_table = Table('Active_users', self.metadata,
                                    Column('id', Integer, primary_key=True),
-                                   Column('user', ForeignKey('Users.id'), unique=True),
+                                   Column('user', ForeignKey(
+                                       'Users.id'), unique=True),
                                    Column('ip_address', String),
                                    Column('port', Integer),
                                    Column('login_time', DateTime)
@@ -114,11 +135,13 @@ class ServerStorage:
 
         # Теперь можно создать запись в таблицу активных пользователей о факте входа.
         # Создаём экземпляр класса self.ActiveUsers, через который передаём данные в таблицу
-        new_active_user = self.ActiveUsers(user.id, ip_address, port, datetime.datetime.now())
+        new_active_user = self.ActiveUsers(
+            user.id, ip_address, port, datetime.datetime.now())
         self.session.add(new_active_user)
 
         # Создаём экземпляр класса self.LoginHistory, через который передаём данные в таблицу
-        history = self.LoginHistory(user.id, datetime.datetime.now(), ip_address, port)
+        history = self.LoginHistory(
+            user.id, datetime.datetime.now(), ip_address, port)
         self.session.add(history)
 
         # Сохраняем изменения
@@ -128,7 +151,8 @@ class ServerStorage:
     def user_logout(self, username):
         # Запрашиваем пользователя, что покидает нас
         # получаем запись из таблицы self.AllUsers
-        user = self.session.query(self.AllUsers).filter_by(name=username).first()
+        user = self.session.query(
+            self.AllUsers).filter_by(name=username).first()
 
         # Удаляем его из таблицы активных пользователей.
         # Удаляем запись из таблицы self.ActiveUsers
@@ -176,25 +200,25 @@ class ServerStorage:
 
 # Отладка
 if __name__ == '__main__':
-    test_db = ServerStorage()
+    test_db = ServerStorage('server_base.db3')
     # Выполняем "подключение" пользователя
     test_db.user_login('client_1', '192.168.1.4', 8080)
-    test_db.user_login('client_2', '192.168.1.5', 7777)
+ #   test_db.user_login('client_2', '192.168.1.5', 7777)
 
     # Выводим список кортежей - активных пользователей
     print(' ---- test_db.active_users_list() ----')
-    print(test_db.active_users_list())
+ #   print(test_db.active_users_list())
 
     # Выполняем "отключение" пользователя
-    test_db.user_logout('client_1')
+ #   test_db.user_logout('client_1')
     # И выводим список активных пользователей
-    print(' ---- test_db.active_users_list() after logout client_1 ----')
-    print(test_db.active_users_list())
+ #   print(' ---- test_db.active_users_list() after logout client_1 ----')
+ #   print(test_db.active_users_list())
 
     # Запрашиваем историю входов по пользователю
-    print(' ---- test_db.login_history(client_1) ----')
-    print(test_db.login_history('client_1'))
+  #  print(' ---- test_db.login_history(client_1) ----')
+   # print(test_db.login_history('client_1'))
 
     # и выводим список известных пользователей
-    print(' ---- test_db.users_list() ----')
-    print(test_db.users_list())
+ #   print(' ---- test_db.users_list() ----')
+ #   print(test_db.users_list())
