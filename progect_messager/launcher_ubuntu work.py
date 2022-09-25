@@ -18,16 +18,21 @@ def get_subprocess(file_with_args):
 
 process = []
 while True:
-    TEXT_FOR_INPUT = "Выберите действие: q - выход, s - запустить сервер и клиенты, x - закрыть все окна: "
+    TEXT_FOR_INPUT = "Выберите действие: q - выход , s - запустить сервер, k - запустить клиенты x - закрыть все окна: "
     action = input(TEXT_FOR_INPUT)
 
     if action == "q":
         break
     elif action == "s":
         process.append(get_subprocess(" -- python3 server.py"))
-        sleep(1)
-        for i in range(2):
-            process.append(get_subprocess(f' -- python3 client.py -n user{i+1}'))
+    elif action == 'k':
+        print('Убедитесь, что на сервере зарегистрировано необходимо количество клиентов с паролем 123456.')
+        print('Первый запуск может быть достаточно долгим из-за генерации ключей!')
+        clients_count = int(
+            input('Введите количество тестовых клиентов для запуска: '))
+        # Запускаем клиентов:
+        for i in range(clients_count):
+            process.append(get_subprocess(f' -- python3 client.py -n user{i+1} -p 123456'))
             sleep(1)
     elif action == "x":
         while process:
