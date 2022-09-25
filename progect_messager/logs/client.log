@@ -1062,3 +1062,28 @@ om': 'test2', 'to': 'test1', 'time': 1564512031.3072023, 'mess_text': 'Как д
 2022-09-21 23:22:12,735 DEBUG transport.py Потеряно соединение с сервером.
 2022-09-21 23:22:15,147 DEBUG transport.py Транспорт завершает работу.
 2022-09-21 23:22:15,680 DEBUG transport.py Потеряно соединение с сервером.
+2022-09-25 20:38:00,158 DEBUG client.py Args loaded
+2022-09-25 20:43:13,712 DEBUG client.py Args loaded
+2022-09-25 20:43:33,143 DEBUG client.py Using USERNAME = user1, PASSWD = 123.
+2022-09-25 20:43:33,144 INFO client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user1
+2022-09-25 20:43:33,712 DEBUG client.py Keys successfully loaded.
+2022-09-25 21:17:53,624 DEBUG client.py Args loaded
+2022-09-25 21:18:03,134 DEBUG client.py Using USERNAME = user1, PASSWD = 12345.
+2022-09-25 21:18:03,134 INFO client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user1
+2022-09-25 21:18:03,182 DEBUG client.py Keys successfully loaded.
+2022-09-25 21:18:03,256 INFO transport.py Попытка подключения №1
+2022-09-25 21:18:04,258 INFO transport.py Попытка подключения №2
+2022-09-25 21:18:05,259 INFO transport.py Попытка подключения №3
+2022-09-25 21:18:06,260 INFO transport.py Попытка подключения №4
+2022-09-25 21:18:07,262 INFO transport.py Попытка подключения №5
+2022-09-25 21:18:08,263 CRITICAL transport.py Не удалось установить соединение с сервером
+2022-09-25 21:22:54,887 DEBUG client.py Args loaded
+2022-09-25 21:23:03,633 DEBUG client.py Using USERNAME = user1, PASSWD = 12334.
+2022-09-25 21:23:03,633 INFO client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user1
+2022-09-25 21:23:03,684 DEBUG client.py Keys successfully loaded.
+2022-09-25 21:23:03,795 INFO transport.py Попытка подключения №1
+2022-09-25 21:23:04,797 INFO transport.py Попытка подключения №2
+2022-09-25 21:23:05,799 INFO transport.py Попытка подключения №3
+2022-09-25 21:23:06,800 INFO transport.py Попытка подключения №4
+2022-09-25 21:23:07,802 INFO transport.py Попытка подключения №5
+2022-09-25 21:23:08,803 CRITICAL transport.py Не удалось установить соединение с сервером
