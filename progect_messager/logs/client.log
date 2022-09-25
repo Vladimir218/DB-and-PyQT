@@ -1105,3 +1105,85 @@ om': 'test2', 'to': 'test1', 'time': 1564512031.3072023, 'mess_text': 'Как д
 2022-09-25 21:48:44,707 INFO transport.py Попытка подключения №5
 2022-09-25 21:48:45,440 CRITICAL transport.py Не удалось установить соединение с сервером
 2022-09-25 21:48:45,708 CRITICAL transport.py Не удалось установить соединение с сервером
+2022-09-25 23:20:03,654 DEBUG client.py Args loaded
+2022-09-25 23:20:03,733 INFO client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user1
+2022-09-25 23:20:03,771 DEBUG client.py Keys successfully loaded.
+2022-09-25 23:20:03,822 INFO transport.py Попытка подключения №1
+2022-09-25 23:20:03,822 DEBUG transport.py Установлено соединение с сервером. Starting auth dialog.
+2022-09-25 23:20:03,855 DEBUG transport.py Passwd hash ready: b'188e1be67d44cd1aac694afe5b65d85b283e4d9ffae922e20706a0e19d2e4da024320ffca359a2e1ef47775288607e349d94bfa8c09baa1bd98902951f36c0fc'
+2022-09-25 23:20:03,856 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664137203.8560603, 'user': {'account_name': 'user1', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtHIxGgGNt4zTxE+kgUFb\njpJdLlqyQNuCL4iuUuNcV62pT5NFX1tp9k9KaeiMXfC+AEZ2g2gpT/o480M1MXhd\nphhEPIqW96ovfL6tqJt6p30g4KeX4vrBTF1sN4kxXf4vcAmDB2GaK7bYeXyjQpBl\n9iT1p6Ol5G3S9ym9Y5Mkq9GhvaiGXFaiM3kmzd/0HvQVtqF8ZJIXraVr3+6fUoqF\nP2dVv9C2T1QLg9MTo9qdYYvCqZe7nbhF0D5yqfqr9ZolWYSLYpKtOn2/A5d7Rvh0\nT02JrJ1RZsxLdGKiQu/OpYK/3CLWW7IdXBsPCM6jiPu63bnR4ghP80sX8Arm3M2T\nqQIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-25 23:20:04,819 DEBUG client.py Args loaded
+2022-09-25 23:20:04,908 INFO client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user2
+2022-09-25 23:20:04,947 DEBUG client.py Keys successfully loaded.
+2022-09-25 23:20:05,023 INFO transport.py Попытка подключения №1
+2022-09-25 23:20:05,023 DEBUG transport.py Установлено соединение с сервером. Starting auth dialog.
+2022-09-25 23:20:05,047 DEBUG transport.py Passwd hash ready: b'daab3cc57e040ea0cff87e9ad268689c31cfa74d081b3db4b116203a0292f323a23790d81aa293ae9e8c605d84a344af651937638a462fa59c04b8a295bb789f'
+2022-09-25 23:20:05,048 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664137205.0482724, 'user': {'account_name': 'user2', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyeP9Y0tBA40LtXfs4WCE\nKTDw3RDr6Moy14/2Lou+EUr4syBPfzvRiy5VtDF4SV1rC+IbHVM4b0d89zjZ42VM\nIYfuHeI2++rymfwd4YLdmjsobvUEtUTt1HUblFKlLzxNufKkeK+EL7DcGi9Tv7cD\ncEhrafSEhPYwCocFhlRr/548/M9xGNFJ/b4KBVnZneF+IW7Y6FGNiYY0BWaUG/uk\nvgu7fxbRiNGZFQYTzk9CMG9Hnamy5pqLAlZk2IHCLwL66IwzJLMubTXd9ml/C/YH\n/XWcP2i/SLZ2xYtjMNmLd6a8io1jh3u1ShieordtpWlx8lWWw1NHADNm88GFFePN\nmwIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-25 23:20:08,861 CRITICAL transport.py Потеряно соединение с сервером!
+2022-09-25 23:20:10,053 CRITICAL transport.py Потеряно соединение с сервером!
+2022-09-25 23:25:43,945 DEBUG client.py Args loaded
+2022-09-25 23:25:44,025 INFO client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user1
+2022-09-25 23:25:44,063 DEBUG client.py Keys successfully loaded.
+2022-09-25 23:25:44,131 INFO transport.py Попытка подключения №1
+2022-09-25 23:25:44,132 DEBUG transport.py Connection established.
+2022-09-25 23:25:44,132 DEBUG transport.py Starting auth dialog.
+2022-09-25 23:25:44,168 DEBUG transport.py Passwd hash ready: b'188e1be67d44cd1aac694afe5b65d85b283e4d9ffae922e20706a0e19d2e4da024320ffca359a2e1ef47775288607e349d94bfa8c09baa1bd98902951f36c0fc'
+2022-09-25 23:25:44,169 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664137544.1696184, 'user': {'account_name': 'user1', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtHIxGgGNt4zTxE+kgUFb\njpJdLlqyQNuCL4iuUuNcV62pT5NFX1tp9k9KaeiMXfC+AEZ2g2gpT/o480M1MXhd\nphhEPIqW96ovfL6tqJt6p30g4KeX4vrBTF1sN4kxXf4vcAmDB2GaK7bYeXyjQpBl\n9iT1p6Ol5G3S9ym9Y5Mkq9GhvaiGXFaiM3kmzd/0HvQVtqF8ZJIXraVr3+6fUoqF\nP2dVv9C2T1QLg9MTo9qdYYvCqZe7nbhF0D5yqfqr9ZolWYSLYpKtOn2/A5d7Rvh0\nT02JrJ1RZsxLdGKiQu/OpYK/3CLWW7IdXBsPCM6jiPu63bnR4ghP80sX8Arm3M2T\nqQIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-25 23:25:45,059 DEBUG client.py Args loaded
+2022-09-25 23:25:45,145 INFO client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user2
+2022-09-25 23:25:45,184 DEBUG client.py Keys successfully loaded.
+2022-09-25 23:25:45,257 INFO transport.py Попытка подключения №1
+2022-09-25 23:25:45,257 DEBUG transport.py Connection established.
+2022-09-25 23:25:45,257 DEBUG transport.py Starting auth dialog.
+2022-09-25 23:25:45,291 DEBUG transport.py Passwd hash ready: b'daab3cc57e040ea0cff87e9ad268689c31cfa74d081b3db4b116203a0292f323a23790d81aa293ae9e8c605d84a344af651937638a462fa59c04b8a295bb789f'
+2022-09-25 23:25:45,292 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664137545.2923467, 'user': {'account_name': 'user2', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyeP9Y0tBA40LtXfs4WCE\nKTDw3RDr6Moy14/2Lou+EUr4syBPfzvRiy5VtDF4SV1rC+IbHVM4b0d89zjZ42VM\nIYfuHeI2++rymfwd4YLdmjsobvUEtUTt1HUblFKlLzxNufKkeK+EL7DcGi9Tv7cD\ncEhrafSEhPYwCocFhlRr/548/M9xGNFJ/b4KBVnZneF+IW7Y6FGNiYY0BWaUG/uk\nvgu7fxbRiNGZFQYTzk9CMG9Hnamy5pqLAlZk2IHCLwL66IwzJLMubTXd9ml/C/YH\n/XWcP2i/SLZ2xYtjMNmLd6a8io1jh3u1ShieordtpWlx8lWWw1NHADNm88GFFePN\nmwIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-25 23:25:49,175 DEBUG transport.py Connection error.
+Traceback (most recent call last):
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/client/transport.py", line 121, in connection_init
+    ans = get_message(self.transport)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/decos.py", line 26, in log_saver
+    ret = func_to_log(*args , **kwargs)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/utils.py", line 18, in get_message
+    encoded_response = client.recv(MAX_PACKAGE_LENGTH)
+TimeoutError: timed out
+2022-09-25 23:25:50,295 DEBUG transport.py Connection error.
+Traceback (most recent call last):
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/client/transport.py", line 121, in connection_init
+    ans = get_message(self.transport)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/decos.py", line 26, in log_saver
+    ret = func_to_log(*args , **kwargs)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/utils.py", line 18, in get_message
+    encoded_response = client.recv(MAX_PACKAGE_LENGTH)
+TimeoutError: timed out
+2022-09-25 23:53:17,498 DEBUG client.py Args loaded
+2022-09-25 23:53:17,577 INFO client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user1
+2022-09-25 23:53:17,615 DEBUG client.py Keys successfully loaded.
+2022-09-25 23:53:17,673 INFO transport.py Попытка подключения №1
+2022-09-25 23:53:17,674 DEBUG transport.py Установлено соединение с сервером. Starting auth dialog.
+2022-09-25 23:53:17,709 DEBUG transport.py Passwd hash ready: b'188e1be67d44cd1aac694afe5b65d85b283e4d9ffae922e20706a0e19d2e4da024320ffca359a2e1ef47775288607e349d94bfa8c09baa1bd98902951f36c0fc'
+2022-09-25 23:53:17,710 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664139197.7105136, 'user': {'account_name': 'user1', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtHIxGgGNt4zTxE+kgUFb\njpJdLlqyQNuCL4iuUuNcV62pT5NFX1tp9k9KaeiMXfC+AEZ2g2gpT/o480M1MXhd\nphhEPIqW96ovfL6tqJt6p30g4KeX4vrBTF1sN4kxXf4vcAmDB2GaK7bYeXyjQpBl\n9iT1p6Ol5G3S9ym9Y5Mkq9GhvaiGXFaiM3kmzd/0HvQVtqF8ZJIXraVr3+6fUoqF\nP2dVv9C2T1QLg9MTo9qdYYvCqZe7nbhF0D5yqfqr9ZolWYSLYpKtOn2/A5d7Rvh0\nT02JrJ1RZsxLdGKiQu/OpYK/3CLWW7IdXBsPCM6jiPu63bnR4ghP80sX8Arm3M2T\nqQIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-25 23:53:18,603 DEBUG client.py Args loaded
+2022-09-25 23:53:18,692 INFO client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user2
+2022-09-25 23:53:18,733 DEBUG client.py Keys successfully loaded.
+2022-09-25 23:53:18,790 INFO transport.py Попытка подключения №1
+2022-09-25 23:53:18,791 DEBUG transport.py Установлено соединение с сервером. Starting auth dialog.
+2022-09-25 23:53:18,826 DEBUG transport.py Passwd hash ready: b'daab3cc57e040ea0cff87e9ad268689c31cfa74d081b3db4b116203a0292f323a23790d81aa293ae9e8c605d84a344af651937638a462fa59c04b8a295bb789f'
+2022-09-25 23:53:18,826 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664139198.8266754, 'user': {'account_name': 'user2', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyeP9Y0tBA40LtXfs4WCE\nKTDw3RDr6Moy14/2Lou+EUr4syBPfzvRiy5VtDF4SV1rC+IbHVM4b0d89zjZ42VM\nIYfuHeI2++rymfwd4YLdmjsobvUEtUTt1HUblFKlLzxNufKkeK+EL7DcGi9Tv7cD\ncEhrafSEhPYwCocFhlRr/548/M9xGNFJ/b4KBVnZneF+IW7Y6FGNiYY0BWaUG/uk\nvgu7fxbRiNGZFQYTzk9CMG9Hnamy5pqLAlZk2IHCLwL66IwzJLMubTXd9ml/C/YH\n/XWcP2i/SLZ2xYtjMNmLd6a8io1jh3u1ShieordtpWlx8lWWw1NHADNm88GFFePN\nmwIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-25 23:53:22,716 CRITICAL transport.py Потеряно соединение с сервером!
+2022-09-25 23:53:23,832 CRITICAL transport.py Потеряно соединение с сервером!
+2022-09-25 23:54:15,833 DEBUG client.py Args loaded
+2022-09-25 23:54:15,914 INFO client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user1
+2022-09-25 23:54:15,955 DEBUG client.py Keys successfully loaded.
+2022-09-25 23:54:16,024 INFO transport.py Попытка подключения №1
+2022-09-25 23:54:16,024 DEBUG transport.py Установлено соединение с сервером. Starting auth dialog.
+2022-09-25 23:54:16,060 DEBUG transport.py Passwd hash ready: b'188e1be67d44cd1aac694afe5b65d85b283e4d9ffae922e20706a0e19d2e4da024320ffca359a2e1ef47775288607e349d94bfa8c09baa1bd98902951f36c0fc'
+2022-09-25 23:54:16,061 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664139256.0614126, 'user': {'account_name': 'user1', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtHIxGgGNt4zTxE+kgUFb\njpJdLlqyQNuCL4iuUuNcV62pT5NFX1tp9k9KaeiMXfC+AEZ2g2gpT/o480M1MXhd\nphhEPIqW96ovfL6tqJt6p30g4KeX4vrBTF1sN4kxXf4vcAmDB2GaK7bYeXyjQpBl\n9iT1p6Ol5G3S9ym9Y5Mkq9GhvaiGXFaiM3kmzd/0HvQVtqF8ZJIXraVr3+6fUoqF\nP2dVv9C2T1QLg9MTo9qdYYvCqZe7nbhF0D5yqfqr9ZolWYSLYpKtOn2/A5d7Rvh0\nT02JrJ1RZsxLdGKiQu/OpYK/3CLWW7IdXBsPCM6jiPu63bnR4ghP80sX8Arm3M2T\nqQIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-25 23:54:16,992 DEBUG client.py Args loaded
+2022-09-25 23:54:17,079 INFO client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user2
+2022-09-25 23:54:17,129 DEBUG client.py Keys successfully loaded.
+2022-09-25 23:54:17,191 INFO transport.py Попытка подключения №1
+2022-09-25 23:54:17,192 DEBUG transport.py Установлено соединение с сервером. Starting auth dialog.
+2022-09-25 23:54:17,219 DEBUG transport.py Passwd hash ready: b'daab3cc57e040ea0cff87e9ad268689c31cfa74d081b3db4b116203a0292f323a23790d81aa293ae9e8c605d84a344af651937638a462fa59c04b8a295bb789f'
+2022-09-25 23:54:17,220 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664139257.2202182, 'user': {'account_name': 'user2', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyeP9Y0tBA40LtXfs4WCE\nKTDw3RDr6Moy14/2Lou+EUr4syBPfzvRiy5VtDF4SV1rC+IbHVM4b0d89zjZ42VM\nIYfuHeI2++rymfwd4YLdmjsobvUEtUTt1HUblFKlLzxNufKkeK+EL7DcGi9Tv7cD\ncEhrafSEhPYwCocFhlRr/548/M9xGNFJ/b4KBVnZneF+IW7Y6FGNiYY0BWaUG/uk\nvgu7fxbRiNGZFQYTzk9CMG9Hnamy5pqLAlZk2IHCLwL66IwzJLMubTXd9ml/C/YH\n/XWcP2i/SLZ2xYtjMNmLd6a8io1jh3u1ShieordtpWlx8lWWw1NHADNm88GFFePN\nmwIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-25 23:54:21,067 CRITICAL transport.py Потеряно соединение с сервером!
+2022-09-25 23:54:22,225 CRITICAL transport.py Потеряно соединение с сервером!
