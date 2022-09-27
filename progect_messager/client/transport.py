@@ -66,13 +66,15 @@ class ClientTransport(threading.Thread, QObject):
 
     # Функция инициализации соединения с сервером
     def connection_init(self, port, ip):
+        '''Метод отвечающий за устанновку соединения с сервером.'''
         # Инициализация сокета и сообщение серверу о нашем появлении
         self.transport = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         # Таймаут необходим для освобождения сокета.
         self.transport.settimeout(5)
 
-        # Соединяемся, 5 попыток соединения, флаг успеха ставим в True если удалось
+        # Соединяемся, 5 попыток соединения, флаг успеха ставим в True если
+        # удалось
         connected = False
         for i in range(5):
             logger.info(f'Попытка подключения №{i + 1}')
@@ -82,6 +84,7 @@ class ClientTransport(threading.Thread, QObject):
                 pass
             else:
                 connected = True
+                logger.debug("Connection established.")
                 break
             time.sleep(1)
 
@@ -90,8 +93,7 @@ class ClientTransport(threading.Thread, QObject):
             logger.critical('Не удалось установить соединение с сервером')
             raise ServerError('Не удалось установить соединение с сервером')
 
-        logger.debug(
-            'Установлено соединение с сервером. Starting auth dialog.')
+        logger.debug('Starting auth dialog.')
 
         # Запускаем процедуру авторизации
         # Получаем хэш пароля
@@ -116,13 +118,12 @@ class ClientTransport(threading.Thread, QObject):
                 }
             }
             logger.debug(f"Presense message = {presense}")
-
-            # Посылаем серверу приветственное сообщение и получаем ответ,
-            # что всё нормально или ловим исключение.
+            # Отправляем серверу приветственное сообщение.
             try:
                 send_message(self.transport, presense)
                 ans = get_message(self.transport)
                 logger.debug(f'Server response = {ans}.')
+                # Если сервер вернул ошибку, бросаем исключение.
                 if RESPONSE in ans:
                     if ans[RESPONSE] == 400:
                         raise ServerError(ans[ERROR])
@@ -130,17 +131,14 @@ class ClientTransport(threading.Thread, QObject):
                         # Если всё нормально, то продолжаем процедуру
                         # авторизации.
                         ans_data = ans[DATA]
-                        hash = hmac.new(passwd_hash_string,
-                                        ans_data.encode('utf-8'), 'MD5')
+                        hash = hmac.new(passwd_hash_string, ans_data.encode('utf-8'), 'MD5')
                         digest = hash.digest()
                         my_ans = RESPONSE_511
                         my_ans[DATA] = binascii.b2a_base64(
                             digest).decode('ascii')
                         send_message(self.transport, my_ans)
                         self.process_server_ans(get_message(self.transport))
-            except (OSError, json.JSONDecodeError):
-                logger.critical('Потеряно соединение с сервером!')
-                raise ServerError('Потеряно соединение с сервером!')
+            except (OSError, json.JSONDecodeError) as err:
                 logger.debug(f'Connection error.', exc_info=err)
                 raise ServerError('Сбой соединения в процессе авторизации.')
 
