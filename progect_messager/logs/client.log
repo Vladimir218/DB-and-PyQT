@@ -1230,3 +1230,113 @@ Traceback (most recent call last):
   File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/utils.py", line 18, in get_message
     encoded_response = client.recv(MAX_PACKAGE_LENGTH)
 TimeoutError: timed out
+2022-09-28 00:13:40,937 DEBUG client_start.py Args loaded
+2022-09-28 00:13:41,308 INFO client_start.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user1
+2022-09-28 00:13:41,425 DEBUG client_start.py Keys successfully loaded.
+2022-09-28 00:13:41,549 INFO transport.py Попытка подключения №1
+2022-09-28 00:13:41,549 DEBUG transport.py Connection established.
+2022-09-28 00:13:41,550 DEBUG transport.py Starting auth dialog.
+2022-09-28 00:13:41,585 DEBUG transport.py Passwd hash ready: b'188e1be67d44cd1aac694afe5b65d85b283e4d9ffae922e20706a0e19d2e4da024320ffca359a2e1ef47775288607e349d94bfa8c09baa1bd98902951f36c0fc'
+2022-09-28 00:13:41,586 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664313221.5867374, 'user': {'account_name': 'user1', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtHIxGgGNt4zTxE+kgUFb\njpJdLlqyQNuCL4iuUuNcV62pT5NFX1tp9k9KaeiMXfC+AEZ2g2gpT/o480M1MXhd\nphhEPIqW96ovfL6tqJt6p30g4KeX4vrBTF1sN4kxXf4vcAmDB2GaK7bYeXyjQpBl\n9iT1p6Ol5G3S9ym9Y5Mkq9GhvaiGXFaiM3kmzd/0HvQVtqF8ZJIXraVr3+6fUoqF\nP2dVv9C2T1QLg9MTo9qdYYvCqZe7nbhF0D5yqfqr9ZolWYSLYpKtOn2/A5d7Rvh0\nT02JrJ1RZsxLdGKiQu/OpYK/3CLWW7IdXBsPCM6jiPu63bnR4ghP80sX8Arm3M2T\nqQIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-28 00:13:41,994 DEBUG client_start.py Args loaded
+2022-09-28 00:13:42,286 INFO client_start.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user2
+2022-09-28 00:13:42,325 DEBUG client_start.py Keys successfully loaded.
+2022-09-28 00:13:42,383 INFO transport.py Попытка подключения №1
+2022-09-28 00:13:42,383 DEBUG transport.py Connection established.
+2022-09-28 00:13:42,383 DEBUG transport.py Starting auth dialog.
+2022-09-28 00:13:42,417 DEBUG transport.py Passwd hash ready: b'daab3cc57e040ea0cff87e9ad268689c31cfa74d081b3db4b116203a0292f323a23790d81aa293ae9e8c605d84a344af651937638a462fa59c04b8a295bb789f'
+2022-09-28 00:13:42,417 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664313222.4179018, 'user': {'account_name': 'user2', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyeP9Y0tBA40LtXfs4WCE\nKTDw3RDr6Moy14/2Lou+EUr4syBPfzvRiy5VtDF4SV1rC+IbHVM4b0d89zjZ42VM\nIYfuHeI2++rymfwd4YLdmjsobvUEtUTt1HUblFKlLzxNufKkeK+EL7DcGi9Tv7cD\ncEhrafSEhPYwCocFhlRr/548/M9xGNFJ/b4KBVnZneF+IW7Y6FGNiYY0BWaUG/uk\nvgu7fxbRiNGZFQYTzk9CMG9Hnamy5pqLAlZk2IHCLwL66IwzJLMubTXd9ml/C/YH\n/XWcP2i/SLZ2xYtjMNmLd6a8io1jh3u1ShieordtpWlx8lWWw1NHADNm88GFFePN\nmwIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-28 00:13:46,592 DEBUG transport.py Connection error.
+Traceback (most recent call last):
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/client/transport.py", line 125, in connection_init
+    ans = get_message(self.transport)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/decos.py", line 26, in log_saver
+    ret = func_to_log(*args , **kwargs)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/utils.py", line 18, in get_message
+    encoded_response = client.recv(MAX_PACKAGE_LENGTH)
+TimeoutError: timed out
+2022-09-28 00:13:47,419 DEBUG transport.py Connection error.
+Traceback (most recent call last):
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/client/transport.py", line 125, in connection_init
+    ans = get_message(self.transport)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/decos.py", line 26, in log_saver
+    ret = func_to_log(*args , **kwargs)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/utils.py", line 18, in get_message
+    encoded_response = client.recv(MAX_PACKAGE_LENGTH)
+TimeoutError: timed out
+2022-09-28 22:23:52,405 DEBUG client_start.py Args loaded
+2022-09-28 22:23:52,648 INFO client_start.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user1
+2022-09-28 22:23:52,767 DEBUG client_start.py Keys successfully loaded.
+2022-09-28 22:23:52,876 INFO transport.py Попытка подключения №1
+2022-09-28 22:23:52,876 DEBUG transport.py Connection established.
+2022-09-28 22:23:52,876 DEBUG transport.py Starting auth dialog.
+2022-09-28 22:23:52,888 DEBUG transport.py Passwd hash ready: b'188e1be67d44cd1aac694afe5b65d85b283e4d9ffae922e20706a0e19d2e4da024320ffca359a2e1ef47775288607e349d94bfa8c09baa1bd98902951f36c0fc'
+2022-09-28 22:23:52,889 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664393032.889458, 'user': {'account_name': 'user1', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtHIxGgGNt4zTxE+kgUFb\njpJdLlqyQNuCL4iuUuNcV62pT5NFX1tp9k9KaeiMXfC+AEZ2g2gpT/o480M1MXhd\nphhEPIqW96ovfL6tqJt6p30g4KeX4vrBTF1sN4kxXf4vcAmDB2GaK7bYeXyjQpBl\n9iT1p6Ol5G3S9ym9Y5Mkq9GhvaiGXFaiM3kmzd/0HvQVtqF8ZJIXraVr3+6fUoqF\nP2dVv9C2T1QLg9MTo9qdYYvCqZe7nbhF0D5yqfqr9ZolWYSLYpKtOn2/A5d7Rvh0\nT02JrJ1RZsxLdGKiQu/OpYK/3CLWW7IdXBsPCM6jiPu63bnR4ghP80sX8Arm3M2T\nqQIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-28 22:23:57,895 DEBUG transport.py Connection error.
+Traceback (most recent call last):
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/client/transport.py", line 125, in connection_init
+    ans = get_message(self.transport)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/decos.py", line 26, in log_saver
+    ret = func_to_log(*args , **kwargs)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/utils.py", line 18, in get_message
+    encoded_response = client.recv(MAX_PACKAGE_LENGTH)
+TimeoutError: timed out
+2022-09-28 22:27:30,092 DEBUG client_start.py Args loaded
+2022-09-28 22:27:47,593 DEBUG client_start.py Using USERNAME = user10, PASSWD = 12345.
+2022-09-28 22:27:47,593 INFO client_start.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user10
+2022-09-28 22:27:47,972 DEBUG client_start.py Keys successfully loaded.
+2022-09-28 22:27:48,242 INFO transport.py Попытка подключения №1
+2022-09-28 22:27:48,243 DEBUG transport.py Connection established.
+2022-09-28 22:27:48,243 DEBUG transport.py Starting auth dialog.
+2022-09-28 22:27:48,280 DEBUG transport.py Passwd hash ready: b'5b571ed4862f0aad634ffd8243b066045153af750d693e21ddc0893ba521afa0cf331665cc302a43fe0702e436d3b7eee2e12e9b64f52ad0d9c711231555ecc9'
+2022-09-28 22:27:48,281 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664393268.2812955, 'user': {'account_name': 'user10', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2tuHPSpMjewByFoKLhNO\n+OpwZCpVcijb5W0OdxfL4ONRhk6R/ysfXXjSx/SxiY9wZuIIEDpsUHihD4mgiP0W\n/ZbAJsiB42oqn7hikhu658G43eP0Ox75cN/7j+ujVZo0G0Taj+0EglpYsGegjPSb\nv+/RDkJIPWgBmzb+HO8MhptQK7dMQu7J1dhuuSkvie6K4iZGMMhW3RDboTna/Swt\nBU+P8l2VVyNGhsPelRfs/zFagZ9RvQAFZ5ScJ6THUilJIIQcqc45qc+U3TXbjmMh\n4KhD9p2HRN1RVNtLHzljH7hslNVPR2mwjkBoMgX7hJwu+RGL6jf6OtfMXxCvvTLL\n/QIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-28 22:27:53,287 DEBUG transport.py Connection error.
+Traceback (most recent call last):
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/client/transport.py", line 125, in connection_init
+    ans = get_message(self.transport)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/decos.py", line 26, in log_saver
+    ret = func_to_log(*args , **kwargs)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/utils.py", line 18, in get_message
+    encoded_response = client.recv(MAX_PACKAGE_LENGTH)
+TimeoutError: timed out
+2022-09-28 22:32:55,698 DEBUG client_start.py Args loaded
+2022-09-28 22:32:55,783 INFO client_start.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user1
+2022-09-28 22:32:55,815 DEBUG client_start.py Keys successfully loaded.
+2022-09-28 22:32:55,876 INFO transport.py Попытка подключения №1
+2022-09-28 22:32:55,877 DEBUG transport.py Connection established.
+2022-09-28 22:32:55,877 DEBUG transport.py Starting auth dialog.
+2022-09-28 22:32:55,912 DEBUG transport.py Passwd hash ready: b'188e1be67d44cd1aac694afe5b65d85b283e4d9ffae922e20706a0e19d2e4da024320ffca359a2e1ef47775288607e349d94bfa8c09baa1bd98902951f36c0fc'
+2022-09-28 22:32:55,913 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664393575.9135687, 'user': {'account_name': 'user1', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtHIxGgGNt4zTxE+kgUFb\njpJdLlqyQNuCL4iuUuNcV62pT5NFX1tp9k9KaeiMXfC+AEZ2g2gpT/o480M1MXhd\nphhEPIqW96ovfL6tqJt6p30g4KeX4vrBTF1sN4kxXf4vcAmDB2GaK7bYeXyjQpBl\n9iT1p6Ol5G3S9ym9Y5Mkq9GhvaiGXFaiM3kmzd/0HvQVtqF8ZJIXraVr3+6fUoqF\nP2dVv9C2T1QLg9MTo9qdYYvCqZe7nbhF0D5yqfqr9ZolWYSLYpKtOn2/A5d7Rvh0\nT02JrJ1RZsxLdGKiQu/OpYK/3CLWW7IdXBsPCM6jiPu63bnR4ghP80sX8Arm3M2T\nqQIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-28 22:33:00,919 DEBUG transport.py Connection error.
+Traceback (most recent call last):
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/client/transport.py", line 126, in connection_init
+    ans = get_message(self.transport)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/decos.py", line 26, in log_saver
+    ret = func_to_log(*args , **kwargs)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/utils.py", line 18, in get_message
+    encoded_response = client.recv(MAX_PACKAGE_LENGTH)
+TimeoutError: timed out
+2022-09-28 22:33:58,686 DEBUG client_start.py Args loaded
+2022-09-28 22:34:09,408 DEBUG client_start.py Using USERNAME = user10, PASSWD = 123456.
+2022-09-28 22:34:09,409 INFO client_start.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user10
+2022-09-28 22:34:09,549 DEBUG client_start.py Keys successfully loaded.
+2022-09-28 22:34:30,571 INFO transport.py Попытка подключения №1
+2022-09-28 22:35:41,341 DEBUG transport.py Connection established.
+2022-09-28 22:55:01,444 DEBUG client_start.py Args loaded
+2022-09-28 22:55:16,352 DEBUG client_start.py Using USERNAME = user1, PASSWD = 123456.
+2022-09-28 22:55:16,353 INFO client_start.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: user1
+2022-09-28 22:55:16,463 DEBUG client_start.py Keys successfully loaded.
+2022-09-28 22:55:47,500 INFO transport.py Попытка подключения №1
+2022-09-28 22:56:13,368 DEBUG transport.py Connection established.
+2022-09-28 22:57:02,490 DEBUG transport.py Starting auth dialog.
+2022-09-28 22:58:03,734 DEBUG transport.py Passwd hash ready: b'188e1be67d44cd1aac694afe5b65d85b283e4d9ffae922e20706a0e19d2e4da024320ffca359a2e1ef47775288607e349d94bfa8c09baa1bd98902951f36c0fc'
+2022-09-28 22:58:46,104 DEBUG transport.py Presense message = {'action': 'presence', 'time': 1664395117.1806514, 'user': {'account_name': 'user1', 'pubkey': '-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtHIxGgGNt4zTxE+kgUFb\njpJdLlqyQNuCL4iuUuNcV62pT5NFX1tp9k9KaeiMXfC+AEZ2g2gpT/o480M1MXhd\nphhEPIqW96ovfL6tqJt6p30g4KeX4vrBTF1sN4kxXf4vcAmDB2GaK7bYeXyjQpBl\n9iT1p6Ol5G3S9ym9Y5Mkq9GhvaiGXFaiM3kmzd/0HvQVtqF8ZJIXraVr3+6fUoqF\nP2dVv9C2T1QLg9MTo9qdYYvCqZe7nbhF0D5yqfqr9ZolWYSLYpKtOn2/A5d7Rvh0\nT02JrJ1RZsxLdGKiQu/OpYK/3CLWW7IdXBsPCM6jiPu63bnR4ghP80sX8Arm3M2T\nqQIDAQAB\n-----END PUBLIC KEY-----'}}
+2022-09-28 23:07:56,570 DEBUG transport.py Connection error.
+Traceback (most recent call last):
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/client/transport.py", line 126, in connection_init
+    ans = get_message(self.transport)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/decos.py", line 26, in log_saver
+    ret = func_to_log(*args , **kwargs)
+  File "/home/user/Документы/GB curs/Базы данных и PyQT/home_work/progect_messager/common/utils.py", line 18, in get_message
+    encoded_response = client.recv(MAX_PACKAGE_LENGTH)
+TimeoutError: timed out
